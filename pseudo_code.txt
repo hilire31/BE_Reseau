@@ -1,0 +1,47 @@
+int mic_tcp_send (int mic_sock, char* mesg, int mesg_size) {
+	printf("[MIC-TCP] Appel de la fonction: "); printf(__FUNCTION__); printf("\n");
+
+
+    mic_tcp_sock sock_source;
+    for i in liste_sock:
+        if i.fd=mic_sock:
+            mic_tcp_sock=i;
+
+    mic_tcp_sock_addr sock_source_addr = sock_source.addr;
+
+    mic_tcp_pdu pdu;
+    mic_tcp_header header;
+    header.syn=0;
+    header.ack=0;
+    header.fin=0;
+    header.source_port=sock_source_addr.port;
+    header.dest_port = addr.port;
+    header.seq_num = pe;  //pe est global
+    header.ack_num=pe?????;
+    pdu.header = header,
+
+    mic_tcp_payload payload = { mesg, mesg_size};
+    pdu.payload=payload;
+
+
+    
+
+    return IP_send(pdu, addr);
+}
+int mic_tcp_socket(start_mode sm) {
+   printf("[MIC-TCP] Appel de la fonction: ");  printf(__FUNCTION__); printf("\n");
+   result = initialize_components(sm); /* Appel obligatoire */
+   return -1;
+   }
+
+int mic_tcp_recv (int socket, char* mesg, int max_mesg_size) {
+	printf("[MIC-TCP] Appel de la fonction: "); printf(__FUNCTION__); printf("\n");
+    mic_tcp_payload payload = malloc(1*sizeof(mic_tcp_payload));
+    mic_tcp_payload payload = { mesg, max_mesg_size};//ou
+    return app_buffer_get(payload);
+}
+void process_received_PDU(mic_tcp_pdu pdu, mic_tcp_sock_addr addr) {
+    printf("[MIC-TCP] Appel de la fonction: "); printf(__FUNCTION__); printf("\n");
+
+    app_buffer_put();
+}
