@@ -42,8 +42,10 @@ int mic_tcp_recv (int socket, char* mesg, int max_mesg_size) {
 }
 void process_received_PDU(mic_tcp_pdu pdu, mic_tcp_sock_addr addr) {
     printf("[MIC-TCP] Appel de la fonction: "); printf(__FUNCTION__); printf("\n");
+    //mise à jour du numéro de séquence
+    pe++;
     
-    app_buffer_put();
+    app_buffer_put(pdu.payload);
 }
 int mic_tcp_accept(int socket, mic_tcp_sock_addr* addr ,unsigned long timeout) {//??????????????
 	printf("[MIC-TCP] Appel de la fonction: ");  printf(__FUNCTION__); printf("\n");
@@ -53,4 +55,4 @@ int mic_tcp_accept(int socket, mic_tcp_sock_addr* addr ,unsigned long timeout) {
         return 1;
     else:
         return 0;
-    }
+}
